@@ -12,6 +12,8 @@ import (
 
 var URL string = "http://localhost:8983/solr/collection1"
 
+// Search takes the given sp api.SearchParams and creates a Solr "select" API request.
+// If the request is successful a api.SolrResponse is returned, if not, an error will be returned.
 func Search(sp *api.SearchParams) (*api.SolrResponse, error) {
 	if sp == nil {
 		panic("'sp' Parameter must not be nil!")

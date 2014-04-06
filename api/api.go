@@ -1,6 +1,7 @@
 package api
 
-// Definition for the search parameters
+// SearchParams contains all parameters for a Solr "select" search request. Parameter
+// Q is necessary.
 type SearchParams struct {
 	Q string `json:"q"`
 	Sort string `json:"sort"`
@@ -17,11 +18,12 @@ type SearchParams struct {
 	Wt string `json:"wt"`
 }
 
-// Definition for the search results
+// SolrResponse contains the search results from a "select" search request.
 type SolrResponse struct {
 	Results SolrResults `json:"response"`
 }
 
+// SolrResults is part of SolrResponse and contains the actual Solr documents and the number of total results.
 type SolrResults struct {
 	TotalResults int            `json:"numFound"`
 	Start        int            `json:"start"`
